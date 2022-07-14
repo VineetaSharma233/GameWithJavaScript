@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+    <!-- <link rel="stylesheet" href="css/style.css" />  -->
+   </head>
+   
+
+  <script>
+   
+    let x=0 + "px";
+    function changePosition()
+    {
+    const d1=document.querySelector( "#d1" );
+    const d2=document.querySelector( "#d2" );
+    const d3=document.querySelector( "#d3" );
+    const d4=document.querySelector( "#d4" );
+    const d5=document.querySelector( "#d5" );
+     rh=Math.floor(Math.random() * document.documentElement.clientHeight);
+     rw=Math.floor(Math.random() * document.documentElement.clientHeight);
+     d1.style.left = rh -300 + "px";
+     d1.style.top = rw  -300 + "px";
+     d1.style.right = rh + 300 + "px";
+     d1.style.bottom = rw + 300 + "px";
+   //   -----------------------------------------
+     d2.style.left = rh + 300 + "px";
+     d2.style.top = rw + 300 + "px";
+     d2.style.right = rh - 300 + "px";
+     d2.style.bottom = rw - 300 + "px";
+   //   -----------------------------------------
+
+     d3.style.left = rh + 300 + "px";
+     d3.style.top = rw - 300 + "px";
+     d3.style.right = rh + 300 + "px";
+     d3.style.bottom = rw - 300 + "px";
+   //   -----------------------------------------
+     d4.style.left = rh - 300 + "px";
+     d4.style.top = rw + 300 + "px";
+     d4.style.right = rh - 300 + "px";
+     d4.style.bottom = rw + 300 + "px";
+   //   -----------------------------------------
+     d5.style.left = rh + 250 + "px";
+     d5.style.top = rw + 250 + "px";
+     d5.style.right = rh - 275 + "px";
+     d5.style.bottom = rw - 275 + "px";
+     setTimeout(changePosition, 900);
+    }
+     let score = 0;
+     let time=60;
+     function handleScore(scr){
+        if(scr===0)
+        {
+         let str = "Your score is "+score;
+         alert(str);
+         score=0;
+         time=60;
+        }
+        score=score+scr;
+     }
+     function resetTime()
+     {
+        time--;
+        if(time===0)
+        {
+            let str = "Your score is "+score;
+            alert(str);
+            score=0;
+            time=60;
+            return;
+        }
+     }
+        setInterval(resetTime,500);
+   </script>
+    <style>
+      body{
+    background-color: rgb(124, 108, 124);
+    margin: 20px;
+    padding: 20px;
+    overflow:hidden;
+}
+
+#d1{
+    width:50px;
+    height:50px;
+    background:rgb(9, 107, 75);
+    border-radius: 50%;
+    border:2px solid  #000000;
+    position:absolute;
+    left:70%; 
+    top:10px;
+}
+
+    
+ 
+#d2{  
+    width:50px;
+    height:50px;
+    background:red;
+    border-radius: 50%;
+    border:2px solid  #000000;
+    position: absolute;
+    left:30%;
+    top:10px;
+}
+
+ #d3{ 
+    width:50px;
+    height:50px;
+    background:yellow;
+    border-radius: 50%;
+    border:2px solid  #000000;
+    position: absolute;
+    left:40%;
+    top:10px;
+}
+#d4{
+    width:50px;
+    height:50px;
+    background:orange;
+    border-radius: 50%;
+    border:2px solid  #000000;
+    position: absolute;
+    left:50%;
+    top:10px;
+}
+#d5{
+    width:50px;
+    height:50px;;
+    background:black;
+    border-radius: 50%;
+    border:2px solid  #000000;
+    position: absolute;
+    left:60%;
+    top:10px;
+}
+#d6{
+    width:50px;
+    height:50px;
+    background-color: rgb(117, 176, 231);
+    border:5px solid black;
+    border-radius: 20px;
+    position:absolute;
+    top:80%;
+    left:50%;
+ 
+}
+    </style>
+
+  <body> 
+    <div  id="d1" onclick="handleScore(1)"> </div>
+    <div  id="d2" onclick="handleScore(2)"> </div>
+    <div  id="d3" onclick="handleScore(3)"> </div>
+    <div  id="d4" onclick="handleScore(4)"> </div>
+    <div  id="d5" onclick="handleScore(0)"> </div>
+    <table id="d7" border = "5px">
+    <tr>
+       <td>Balls</td>
+       <td>Points </td>
+    </tr>
+
+    <tr>
+      <td>Red ball </td>
+      <td> 2 😊 </td>
+    </tr>
+     
+    <tr>
+      <td>Yellow ball </td> 
+      <td> 3 😊 </td>
+    </tr>
+
+    <tr>
+      <td>Orange ball </td>
+      <td> 4 😊</td>
+    </tr>
+
+    <tr>
+      <td>Black  ball  </td>
+      <td>Game Stop 😭</td>
+    </tr>
+
+    <tr>
+      <td>Green  ball </td>
+      <td> 1 😊</td>
+
+    </tr>
+    <button id="d6" onclick="changePosition()"> move ball 👆</button>
+  </body>
+
+</html>
